@@ -3,6 +3,7 @@ package com.todo.todoBasic.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,7 @@ import com.todo.todoBasic.constants.Priority;
 import com.todo.todoBasic.entity.Todo;
 import com.todo.todoBasic.service.TaskAnalyticsService;
 import com.todo.todoBasic.service.TodoService;
-
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping(("/todos"))
 public class TodoController{
