@@ -1,4 +1,4 @@
-package com.todo.todoBasic.service;
+package com.todo.todoBasic.service.serviceImpl;
 
 import java.util.Date;
 import java.util.List;
@@ -13,6 +13,7 @@ import com.todo.todoBasic.constants.Category;
 import com.todo.todoBasic.constants.Priority;
 import com.todo.todoBasic.entity.Todo;
 import com.todo.todoBasic.exceptions.TodoNotFoundException;
+import com.todo.todoBasic.service.TodoService;
 
 @Service
 public class TodoServiceImpl implements TodoService {
@@ -40,13 +41,20 @@ public class TodoServiceImpl implements TodoService {
   return todoRepo.getAllTodos();
   }
 
-  @Override
-  public List<Todo> filterTodos(Priority priority, Category category) {
-   return todoRepo.getAllTodos().stream()
-                  .filter(t->t.getCategory()== category)
-                  .filter(t->t.getPriority()==priority)
-                  .collect(Collectors.toList());
-  }
+ @Override
+public List<Todo> filterTodos(Priority priority, Category category) throws TodoNotFoundException {
+    List<Todo> todos = todoRepo.getAllTodos().stream()
+            .filter(t -> (category == null || t.getCategory() == category))
+            .filter(t -> (priority == null || t.getPriority() == priority))
+            .collect(Collectors.toList());
+
+    if (todos.isEmpty()) {
+        throw new TodoNotFoundException("No Todos found for the given filters");
+    }
+
+    return todos;
+}
+
 
   @Override
   @Scheduled(fixedRate = 7200000) ///2 Hrs.

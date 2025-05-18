@@ -52,7 +52,7 @@ public class TodoController{
      }
 
      @GetMapping("/filter")      //End point to filter Todos by category and priority
-     public List<Todo> filterByCategoryAndPriority(@RequestParam Category category, @RequestParam Priority priority){
+     public List<Todo> filterByCategoryAndPriority(@RequestParam(required = false) Category category, @RequestParam(required = false) Priority priority){
           return todoService.filterTodos(priority, category);
      }
      //add endpoints mark as completed and uncompleted todos

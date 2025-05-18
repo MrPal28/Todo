@@ -7,6 +7,7 @@
   "updatedAt" : 1745928000000,
   "priority" : "MEDIUM",
   "category" : "PERSONAL",
+  "status" : "ACTIVE",
   "completed" : true,
   "isCompleted" : true
 }, {
@@ -18,6 +19,7 @@
   "updatedAt" : null,
   "priority" : "HIGH",
   "category" : "WORK",
+  "status" : "ACTIVE",
   "completed" : false,
   "isCompleted" : false
 }, {
@@ -29,6 +31,7 @@
   "updatedAt" : 1745593200000,
   "priority" : "HIGH",
   "category" : "STUDY",
+  "status" : "ACTIVE",
   "completed" : true,
   "isCompleted" : true
 }, {
@@ -40,6 +43,7 @@
   "updatedAt" : 1746081000000,
   "priority" : "LOW",
   "category" : "HEALTH",
+  "status" : "ACTIVE",
   "completed" : true,
   "isCompleted" : true
 }, {
@@ -51,6 +55,7 @@
   "updatedAt" : null,
   "priority" : "LOW",
   "category" : "PERSONAL",
+  "status" : "ACTIVE",
   "completed" : false,
   "isCompleted" : false
 }, {
@@ -62,6 +67,7 @@
   "updatedAt" : 1746093600000,
   "priority" : "MEDIUM",
   "category" : "HOME",
+  "status" : "ACTIVE",
   "completed" : true,
   "isCompleted" : true
 }, {
@@ -73,6 +79,7 @@
   "updatedAt" : 1746212400000,
   "priority" : "MEDIUM",
   "category" : "STUDY",
+  "status" : "ACTIVE",
   "completed" : true,
   "isCompleted" : true
 }, {
@@ -84,6 +91,7 @@
   "updatedAt" : null,
   "priority" : "LOW",
   "category" : "WORK",
+  "status" : "ACTIVE",
   "completed" : false,
   "isCompleted" : false
 }, {
@@ -95,6 +103,7 @@
   "updatedAt" : 1745733600000,
   "priority" : "LOW",
   "category" : "HEALTH",
+  "status" : "ACTIVE",
   "completed" : true,
   "isCompleted" : true
 }, {
@@ -106,6 +115,7 @@
   "updatedAt" : 1746180000000,
   "priority" : "HIGH",
   "category" : "STUDY",
+  "status" : "ACTIVE",
   "completed" : true,
   "isCompleted" : true
 }, {
@@ -117,6 +127,7 @@
   "updatedAt" : null,
   "priority" : "LOW",
   "category" : "HOME",
+  "status" : "ACTIVE",
   "completed" : false,
   "isCompleted" : false
 }, {
@@ -128,6 +139,7 @@
   "updatedAt" : 1746019800000,
   "priority" : "MEDIUM",
   "category" : "WORK",
+  "status" : "ACTIVE",
   "completed" : true,
   "isCompleted" : true
 }, {
@@ -139,6 +151,7 @@
   "updatedAt" : 1746118800000,
   "priority" : "LOW",
   "category" : "PERSONAL",
+  "status" : "ACTIVE",
   "completed" : true,
   "isCompleted" : true
 }, {
@@ -150,6 +163,7 @@
   "updatedAt" : null,
   "priority" : "MEDIUM",
   "category" : "WORK",
+  "status" : "ACTIVE",
   "completed" : false,
   "isCompleted" : false
 }, {
@@ -161,6 +175,19 @@
   "updatedAt" : 1745953200000,
   "priority" : "HIGH",
   "category" : "HOME",
+  "status" : "ACTIVE",
   "completed" : true,
   "isCompleted" : true
+}, {
+  "id" : 16,
+  "title" : "Buy Shoes",
+  "description" : "Shreeleathers",
+  "createdAt" : 1747551158252,
+  "expiryDate" : 1747612800000,
+  "updatedAt" : null,
+  "priority" : "MEDIUM",
+  "category" : "PERSONAL",
+  "status" : "ACTIVE",
+  "completed" : false,
+  "isCompleted" : false
 } ]

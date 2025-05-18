@@ -1,4 +1,4 @@
-package com.todo.todoBasic.service;
+package com.todo.todoBasic.service.serviceImpl;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -17,6 +17,7 @@ import com.todo.todoBasic.Repo.TodoRepo;
 import com.todo.todoBasic.constants.Category;
 import com.todo.todoBasic.constants.Priority;
 import com.todo.todoBasic.entity.Todo;
+import com.todo.todoBasic.service.TaskAnalyticsService;
 
 @Service
 public class TaskAnalyticsServiceImpl implements TaskAnalyticsService {

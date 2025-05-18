@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.todo.todoBasic.entity.Todo;
+import com.todo.todoBasic.exceptions.InvalidTodoException;
 import com.todo.todoBasic.exceptions.TodoNotFoundException;
 
 @Component
@@ -20,35 +21,43 @@ public class TodoRepoImpl implements TodoRepo{
   private static final String FILE_PATH = "src/main/resources/todo.json";
   private ObjectMapper objectMapper = new ObjectMapper();
 
-  @Override
-  public void saveTodo(Todo todo) {
-      List<Todo> todos = getAllTodos();
-  
-      todo.setCreatedAt(new Date());
-  
-      int newId = todos.stream()
-                       .mapToInt(Todo::getId)
-                       .max()
-                       .orElse(0) + 1;
-  
-      todo.setId(newId);
-      todos.add(todo);
-      saveAll(todos);
-  }
+ @Override
+public void saveTodo(Todo todo) throws InvalidTodoException {
+    List<Todo> todos = getAllTodos();
+    todo.setCreatedAt(new Date());
+
+    int newId = todos.stream()
+                     .mapToInt(Todo::getId)
+                     .max()
+                     .orElse(0) + 1;
+
+    todo.setId(newId);
+
+    if (todo.getTitle() == null || todo.getTitle().trim().isEmpty()) {
+        throw new InvalidTodoException("Title cannot be null or empty");
+    }
+
+    todos.add(todo);
+    saveAll(todos);
+}
+
 
   @Override
   public void deleteTodo(int id) {
     List<Todo> todos = getAllTodos();
-    todos.removeIf(t->t.getId() == id);
+    boolean isRemoved = todos.removeIf(t->t.getId() == id);
+    if(!isRemoved){
+      throw new TodoNotFoundException("Todo with ID " + id + "not found");
+    }
     saveAll(todos);
   }
 
   @Override
   public Todo getTodo(int id) {
     return getAllTodos().stream()
-      .filter(t-> t.getId() == id)
+      .filter(t-> t.getId() == id )
       .findFirst()
-      .orElse(null);
+      .orElseThrow(() -> new TodoNotFoundException("Todo with ID " + id + " not found."));
   }
 
   @Override
