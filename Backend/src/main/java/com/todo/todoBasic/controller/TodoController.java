@@ -20,7 +20,7 @@ import com.todo.todoBasic.constants.Priority;
 import com.todo.todoBasic.entity.Todo;
 import com.todo.todoBasic.service.TaskAnalyticsService;
 import com.todo.todoBasic.service.TodoService;
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5173"})
 @RestController
 @RequestMapping(("/todos"))
 public class TodoController{
