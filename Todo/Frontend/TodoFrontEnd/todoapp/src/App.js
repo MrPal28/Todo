@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Edit2, Trash2, Check, X, BarChart3, Filter, Calendar, AlertCircle } from 'lucide-react';
+import { Plus, Edit2, Trash2, Check, X, BarChart3, Filter, Calendar, AlertCircle, Clock, Archive } from 'lucide-react';
 
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
   const [filteredTodos, setFilteredTodos] = useState([]);
+  const [expiredTasks, setExpiredTasks] = useState([]);
   const [newTodo, setNewTodo] = useState({
     title: '',
     description: '',
@@ -16,7 +17,9 @@ const TodoApp = () => {
   const [filter, setFilter] = useState({ category: '', priority: '' });
   const [stats, setStats] = useState(null);
   const [showStats, setShowStats] = useState(false);
+  const [showExpiredTasks, setShowExpiredTasks] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [expiredLoading, setExpiredLoading] = useState(false);
 
   const API_BASE = 'http://localhost:8080/todos';
 
@@ -42,6 +45,19 @@ const TodoApp = () => {
       console.error('Error fetching todos:', error);
     }
     setLoading(false);
+  };
+
+  const fetchExpiredTasks = async () => {
+    setExpiredLoading(true);
+    try {
+      const response = await fetch(`${API_BASE}/expired`);
+      const data = await response.json();
+      setExpiredTasks(data);
+    } catch (error) {
+      console.error('Error fetching expired tasks:', error);
+      setExpiredTasks([]);
+    }
+    setExpiredLoading(false);
   };
 
   const fetchStats = async () => {
@@ -118,6 +134,55 @@ const TodoApp = () => {
     }
   };
 
+  const deleteExpiredTask = async (id) => {
+    try {
+      await fetch(`${API_BASE}/expired/${id}`, { method: 'DELETE' });
+      fetchExpiredTasks();
+      fetchStats();
+    } catch (error) {
+      console.error('Error deleting expired task:', error);
+    }
+  };
+
+  const restoreExpiredTask = async (task) => {
+    try {
+      // Create a new todo from the expired task
+      const todoData = {
+        title: task.title,
+        description: task.description,
+        priority: task.priority,
+        category: task.category,
+        expiryDate: null // Remove expiry date when restoring
+      };
+      
+      await fetch(`${API_BASE}/addTodo`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(todoData)
+      });
+      
+      // Delete from expired tasks
+      await deleteExpiredTask(task.id);
+      
+      fetchTodos();
+      fetchStats();
+    } catch (error) {
+      console.error('Error restoring expired task:', error);
+    }
+  };
+
+  const clearAllExpiredTasks = async () => {
+    if (window.confirm('Are you sure you want to clear all expired tasks? This action cannot be undone.')) {
+      try {
+        await fetch(`${API_BASE}/expired/clear`, { method: 'DELETE' });
+        setExpiredTasks([]);
+        fetchStats();
+      } catch (error) {
+        console.error('Error clearing expired tasks:', error);
+      }
+    }
+  };
+
   const toggleComplete = async (id, isCompleted) => {
     try {
       const endpoint = isCompleted ? 'markAsUncompleted' : 'markAsCompleted';
@@ -158,6 +223,13 @@ const TodoApp = () => {
       } catch (error) {
         console.error('Error deleting all todos:', error);
       }
+    }
+  };
+
+  const handleShowExpiredTasks = () => {
+    setShowExpiredTasks(!showExpiredTasks);
+    if (!showExpiredTasks) {
+      fetchExpiredTasks();
     }
   };
 
@@ -216,6 +288,13 @@ const TodoApp = () => {
           >
             <BarChart3 size={20} />
             Analytics
+          </button>
+          <button
+            onClick={handleShowExpiredTasks}
+            className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
+          >
+            <Clock size={20} />
+            Expired Tasks ({expiredTasks.length})
           </button>
           <button
             onClick={markAllCompleted}
@@ -319,6 +398,98 @@ const TodoApp = () => {
                 <div className="text-gray-600">Expired</div>
               </div>
             </div>
+          </div>
+        )}
+
+        {/* Expired Tasks Panel */}
+        {showExpiredTasks && (
+          <div className="bg-white rounded-xl shadow-lg p-6 mb-6 border border-orange-200 border-l-4 border-l-orange-500">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
+                <Archive className="text-orange-600" size={24} />
+                Expired Tasks ({expiredTasks.length})
+              </h3>
+              {expiredTasks.length > 0 && (
+                <button
+                  onClick={clearAllExpiredTasks}
+                  className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm transition-colors"
+                >
+                  Clear All
+                </button>
+              )}
+            </div>
+            
+            {expiredLoading ? (
+              <div className="text-center py-8">
+                <div className="inline-block animate-spin rounded-full h-6 w-6 border-b-2 border-orange-600"></div>
+                <p className="text-gray-500 mt-2">Loading expired tasks...</p>
+              </div>
+            ) : expiredTasks.length === 0 ? (
+              <div className="text-center py-8">
+                <Clock className="mx-auto text-gray-400 mb-3" size={48} />
+                <p className="text-gray-500 text-lg">No expired tasks found</p>
+                <p className="text-gray-400 text-sm">Tasks that expire will appear here</p>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {expiredTasks.map((task) => (
+                  <div
+                    key={task.id}
+                    className="bg-orange-50 rounded-lg border border-orange-200 p-4 transition-all hover:shadow-md"
+                  >
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <h4 className="text-lg font-semibold text-gray-800">{task.title}</h4>
+                          <AlertCircle size={16} className="text-orange-600" />
+                        </div>
+                        
+                        {task.description && (
+                          <p className="text-gray-600 mb-3">{task.description}</p>
+                        )}
+                        
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getPriorityColor(task.priority)}`}>
+                            {task.priority}
+                          </span>
+                          <span className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(task.category)}`}>
+                            {task.category}
+                          </span>
+                          {task.expiryDate && (
+                            <span className="px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800 flex items-center gap-1">
+                              <Calendar size={12} />
+                              Expired: {formatDate(task.expiryDate)}
+                            </span>
+                          )}
+                        </div>
+                        
+                        <div className="text-xs text-gray-500">
+                          Originally created: {formatDate(task.createdAt)}
+                          {task.expiredAt && ` • Expired: ${formatDate(task.expiredAt)}`}
+                        </div>
+                      </div>
+                      
+                      <div className="flex gap-2 ml-4">
+                        <button
+                          onClick={() => restoreExpiredTask(task)}
+                          className="p-2 bg-green-100 text-green-600 rounded-lg hover:bg-green-200 transition-colors"
+                          title="Restore as new todo"
+                        >
+                          <Plus size={18} />
+                        </button>
+                        <button
+                          onClick={() => deleteExpiredTask(task.id)}
+                          className="p-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition-colors"
+                          title="Delete permanently"
+                        >
+                          <Trash2 size={18} />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         )}
 

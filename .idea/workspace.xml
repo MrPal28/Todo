@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="97d1a4e4-466c-4a3a-9a04-dd654da4c8ca" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/resources/todo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/DTO/TaskStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/DTO/TaskStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/Repo/TodoRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/Repo/TodoRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/Repo/TodoRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/Repo/TodoRepoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/TodoBasicApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/TodoBasicApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/advice/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/advice/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/advice/LoggingAspectsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/advice/LoggingAspectsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/constants/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/constants/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/constants/Priority.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/constants/Priority.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/constants/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/constants/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/controller/TodoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/controller/TodoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/entity/Todo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/entity/Todo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/exceptions/DuplicateTodoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/exceptions/DuplicateTodoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/exceptions/InvalidTodoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/exceptions/InvalidTodoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/exceptions/TodoNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/exceptions/TodoNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/service/ScheduledTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/service/ScheduledTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/service/ScheduledTasksImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/service/ScheduledTasksImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/service/TaskAnalyticsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/service/TaskAnalyticsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/service/TodoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/service/TodoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/service/serviceImpl/ScheduledTasksImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/service/serviceImpl/ScheduledTasksImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/service/serviceImpl/TaskAnalyticsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/service/serviceImpl/TaskAnalyticsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/service/serviceImpl/TodoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/service/serviceImpl/TodoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/todoBasic/webconfig/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/todo/todoBasic/webconfig/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/todo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/todo/todoBasic/TodoBasicApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/test/java/com/todo/todoBasic/TodoBasicApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MrPal28&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MrPal28/Todo.git&quot;,
+    &quot;accountId&quot;: &quot;2f2d2556-d9ae-427a-bd7a-1360d29d23c9&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2xV3QBn7UENxfx6rlYSyNabbC70" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.TodoBasicApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ARINDAM PAL\OneDrive\Desktop\Todo\Todo" />
+      <recent name="C:\Users\ARINDAM PAL\OneDrive\Desktop\Todo\Todo\Backend" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="TodoBasicApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.todo.todoBasic.TodoBasicApplication" />
+      <module name="todoBasic" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.todo.todoBasic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Todo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Todo" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TodoBasicApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="97d1a4e4-466c-4a3a-9a04-dd654da4c8ca" name="Changes" comment="" />
+      <created>1748009395926</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1748009395926</updated>
+    </task>
+    <servers />
+  </component>
+</project>

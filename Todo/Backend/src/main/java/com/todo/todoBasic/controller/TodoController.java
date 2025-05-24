@@ -3,6 +3,7 @@ package com.todo.todoBasic.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import com.todo.todoBasic.DTO.TaskStats;
 import com.todo.todoBasic.constants.Category;
 import com.todo.todoBasic.constants.Priority;
 import com.todo.todoBasic.entity.Todo;
+import com.todo.todoBasic.service.ExpiredTaskService;
 import com.todo.todoBasic.service.TaskAnalyticsService;
 import com.todo.todoBasic.service.TodoService;
 @CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5173"})
@@ -27,6 +29,9 @@ public class TodoController{
   
      @Autowired
      private TodoService todoService;
+     @Autowired
+    private ExpiredTaskService expiredTaskService;
+
 
      @Autowired
      private TaskAnalyticsService taskAnalyticsService; 
@@ -89,5 +94,25 @@ public class TodoController{
      @GetMapping("/analytics")
      public TaskStats getStats() {
     return taskAnalyticsService.generateAnalytics();
+    
 }
+
+ @GetMapping("/expired")
+    public List<Todo> getExpiredTasks() {
+        return expiredTaskService.getAllExpiredTasks();
+    }
+
+    // DELETE specific expired task by id
+    @DeleteMapping("/expired/{id}")
+    public ResponseEntity<String> deleteExpiredTask(@PathVariable int id) {
+        expiredTaskService.deleteExpiredTaskById(id);
+        return ResponseEntity.ok("Expired task deleted successfully.");
+    }
+
+    // DELETE all expired tasks
+    @DeleteMapping("/expired/clear")
+    public ResponseEntity<String> clearAllExpiredTasks() {
+        expiredTaskService.clearAllExpiredTasks();
+        return ResponseEntity.ok("All expired tasks cleared.");
+    }
 }
